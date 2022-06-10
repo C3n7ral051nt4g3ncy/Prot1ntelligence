@@ -1,4 +1,4 @@
 requests
 bs4
-googlesearch-python
+googlesearch
 ipaddress
