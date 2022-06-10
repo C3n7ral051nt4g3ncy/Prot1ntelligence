@@ -29,6 +29,7 @@ En l'utilisant vous pourrez obtenir du RENS sur:
 Assurez-vous d'avoir:
 - Beautiful Soup (pip3 install beautifulsoup4)
 - Requests (pip3 install requests)
+- Googlesearch-python (pip3 install googlesearch-python)
 <br>
 
 # Prot1ntelligence video 🎬
@@ -51,6 +52,7 @@ Si vous souhaitez regarder la vidéo YouTube, assurez vous d'être sur un **PC**
 ```
 git clone https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence
 cd Prot1ntelligence
+pip install -r requirements.txt or pip3 install -r requirements.txt
 
 python3 prot1ntelligence.py
 ```
