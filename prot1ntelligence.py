@@ -194,7 +194,7 @@ def darkwebbrowser():
     Dark Web Browser Open
 
     """
-    query = input("""\nInput Target email or any query to search the Dark Web (example: darkmatterproject@protonmail.com"\n\u001b[33mMail de la cible (ou autre requete pour recherche Dark Net)\u001b[32m: """)
+    query = input("""\nInput Target email or any query to search the Dark Web (example: darkmatterproject@protonmail.com\n\u001b[33mMail de la cible (ou autre requete pour recherche Dark Net)\u001b[32m: """)
     webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
 
 
@@ -280,14 +280,14 @@ def pgpkeyinformation():
         print("\033[1m\n\nGet User PGP Key? / \u001b[33mObtenir la cle PGP ?\033[1m\u001b[32m ")
         while invalidResponse:
             # Input
-            responseFromUser = input("""\033[1m "\033[1myes"/"no":\033[0m """)
+            responseFromUser = input("""\033[1m "\033[1mY"/"N":\033[0m """)
             # Text if the input is valid
-            if responseFromUser == "yes":
+            if responseFromUser == "Y":
                 invalidResponse = False
                 requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search=' + str(mail))
                 bodyResponsePublicKey = requestProtonPublicKey.text
                 print(bodyResponsePublicKey)
-            elif responseFromUser == "no":
+            elif responseFromUser == "N":
                 invalidResponse = False
             else:
                 print("Input Not Valid")
