@@ -22,6 +22,7 @@ You will be able to gain intelligence on:
 - Digital Footprints left by the ProtonMail user on the Clear and Dark Web.
 <br>
 
+  
 # Requirements 🐍
 [Python 3](https://www.python.org/downloads/)<br>
 
@@ -34,7 +35,7 @@ Make sure that you have:
 
 https://user-images.githubusercontent.com/104733166/173101016-94494cd4-448f-4d4c-8341-1c761ba43e38.mp4
 
-
+<br>
 
 # Installation ⚙️
 
