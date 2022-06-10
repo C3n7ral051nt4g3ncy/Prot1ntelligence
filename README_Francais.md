@@ -9,7 +9,8 @@
 <a href="https://ko-fi.com/tacticalintelanalyst"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white">
 <a href="https://user-images.githubusercontent.com/104733166/171052611-1f76b07c-832f-4a4a-9a0a-2f94595c28c9.png"/> <img alt="BTC" src="https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white">
 
-  
+<p align="center">
+<a href="https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/blob/master/LICENSE"/> <img alt="Licence" src="https://img.shields.io/badge/LICENCE-MIT-brightgreen">
 </p>
 <br>
     
@@ -121,6 +122,8 @@ Si vous souhaitez apporter des suggestions ou modifs du code, n'hésitez pas, je
 <br>
   
 # Remerciements 🙏
+  
+Merci à [Joe Gray](https://twitter.com/C_3PJoe) pour son aide et ses formations de qualité.
   
 Merci à [White Hat Inspector](https://twitter.com/WHInspector) et [Justin Seitz](https://twitter.com/jms_dot_py) pour leur savoir et leur partage sur l'Automatisation de l'OSINT avec Python.
 
