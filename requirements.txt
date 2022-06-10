@@ -1,0 +1,6 @@
+requests
+re
+bs4
+googlesearch-python
+ipaddress
+webbrowser
