@@ -29,6 +29,11 @@ Make sure that you have:
 - Beautiful Soup (pip3 install beautifulsoup4)
 - Requests (pip3 install requests)
 <br>
+  
+# Prot1ntelligence video 🎬
+
+https://user-images.githubusercontent.com/104733166/173101016-94494cd4-448f-4d4c-8341-1c761ba43e38.mp4
+
 
 
 # Installation ⚙️
