@@ -30,10 +30,16 @@ Assurez-vous d'avoir:
 - Requests (pip3 install requests)
 <br>
 
-  # Prot1ntelligence video 🎬
+# Prot1ntelligence video 🎬
 
-https://user-images.githubusercontent.com/104733166/173101016-94494cd4-448f-4d4c-8341-1c761ba43e38.mp4
+Si vous souhaitez regarder la vidéo YouTube, assurez vous d'être sur un **PC** sinon ce sera dégueulasse de votre téléphone, mettre aussi les **paramètres de la vidéo sur 4K**.
+  
+<a href="https://youtu.be/Ufw1PEwfTLo" target="_blank">
+ <img src="https://user-images.githubusercontent.com/104733166/173109191-89dcd8c1-0f87-4655-990e-582c9f59ca9e.png" alt="Watch the video" width="660" height="360" border="10" />
+</a>
 
+<br>
+<br>
 
   
   
