@@ -1,9 +1,9 @@
 <p align="center"> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
-  
+<img src="http://ForTheBadge.com/images/badges/built-with-swag.svg"> 
 <br>
 <br>
   
-<p float="left">
+<p align="center">
 <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white"/> 
 <a href="https://github.com/C3n7ral051nt4g3ncy)"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
 <a href="https://ko-fi.com/tacticalintelanalyst"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white">
@@ -91,7 +91,13 @@ Donc qui confirmerait que la cible est un utilisateur de ProtonVPN
 <br>
 
 # Améliorations du Tool 🔧
-Si vous souhaitez apporter des suggestions ou modifs du code, n'hésitez pas, je suis joignable sur [Twitter](https://twitter.com/OSINT_Tactical)🐥 et [KeyBase](https://keybase.io/osint_intel)🔐.
+Si vous souhaitez apporter des suggestions ou modifs du code, n'hésitez pas, je suis joignable sur Twitter et KeyBase: <br>
+
+<a href="https://twitter.com/OSINT_Tactical"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/> <br>
+  
+<a href="https://keybase.io/osint_intel"><img src="https://img.shields.io/keybase/pgp/osint_intel?label=Keybase&logo=Keybase&logoColor=orange&style=for-the-badge"/>
+  
+  
 
 <br>
 
