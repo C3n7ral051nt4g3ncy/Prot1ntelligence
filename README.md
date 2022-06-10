@@ -33,7 +33,7 @@ You will be able to gain intelligence on:
 Make sure that you have:
 - Beautiful Soup (pip3 install beautifulsoup4)
 - Requests (pip3 install requests)
-- Googlesearch-python (pip3 install googlesearch-python)
+- Google (pip3 install google)
 <br>
   
 # Prot1ntelligence video 🎬
@@ -51,7 +51,7 @@ When viewing on Youtube, make sure you view **from a PC**, and put YouTube video
 ```
 git clone https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence
 cd Prot1ntelligence
-pip install -r requirements.txt or pip3 install -r requirements.txt
+pip install -r requirements.txt or pip3 install -r requirements.txt depending on your set-up.
 
 python3 prot1ntelligence.py
 ```
