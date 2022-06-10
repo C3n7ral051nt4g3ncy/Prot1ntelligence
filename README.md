@@ -1,5 +1,7 @@
 <p align="center"> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
-<img src="http://ForTheBadge.com/images/badges/built-with-swag.svg"> 
+<img src="http://ForTheBadge.com/images/badges/built-with-swag.svg"><br>
+  
+<p align="center"<a href="https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/blob/master/LICENSE)"> <img src="https://img.shields.io/badge/LICENCE-MIT-brightgreen">
 <br>
 <br>
   
