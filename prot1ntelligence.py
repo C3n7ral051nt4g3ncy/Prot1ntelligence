@@ -194,7 +194,7 @@ def darkwebbrowser():
     Dark Web Browser Open
 
     """
-    query = input("""\nInput Target email or any query to search the Dark Web (example: darkmatterproject@protonmail.com)\n\u001b[33mMail de la cible (ou autre requete pour recherche Dark Net)\u001b[32m: """)
+    query = input("""\nInput Target email or any query to search the Dark Web (example: darkmatterproject@protonmail.com)\n\u001b[33mMail de la cible\u001b[32m: """)
     webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
 
 
