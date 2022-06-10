@@ -2,4 +2,3 @@ requests
 bs4
 googlesearch-python
 ipaddress
-webbrowser
