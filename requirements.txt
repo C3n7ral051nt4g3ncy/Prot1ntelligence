@@ -1,4 +1,5 @@
 requests
 bs4
-googlesearch-python==1.1.0
 ipaddress
+google
+google-search
