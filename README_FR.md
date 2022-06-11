@@ -139,6 +139,7 @@ Utilisateur de scripts Python depuis un moment déjà, mais jamais créateur.<br
 Alors si ce tool vous plait et que vous l'utilisez souvent, si vous souhaitez soutenir mon travail,
 Vous pouvez cliquer sur le badge KO-FI en haut de ce fichier ou cliquer sur le badge BITCOIN pour envoyer un don en cryptomonnaies.
 
- # Sans oublie de mention
-Le code n'est pas 100% à l'identique, mais pour mon premier script et projet (n'étant pas encore spécialiste Python), j'ai pris des idées et certains morceaux de **PROTOSINT** de **Pixelbubble**. Protosint ne fonctionne plus pour certains modules et j'y ai ajouté mes propres modules qui me conviennent. Tous les projets sur GitHub en mode pubic sont en open source, le code aussi est en open source et publiquement accessible. Tout comme Protosint, Prot1ntelligence est sous licence MIT, libre à vous de forker et d'améliorer selon vos souhaits et besoins.
+ # Sans oublie de mention 📢
+Mea Culpa pour l'oublie de la mention pendant quelques heures après le début de la mise en ligne et merci à la communauté de m'avoir aidé. 
+Le code n'est pas 100% à l'identique, mais pour mon premier script/projet Python (n'étant pas encore spécialiste Python), j'ai pris des idées et certains morceaux/fork de **PROTOSINT** de **Pixelbubble**. Protosint ne fonctionne plus pour certains modules et j'y ai ajouté mes propres modules qui me conviennent et je vais continuer à rajouter d'autres modules. Tous les projets sur GitHub en mode public sont en open source, le code aussi est en open source et publiquement accessible. Tout comme Protosint, Prot1ntelligence est sous licence MIT, libre à vous de forker et d'améliorer selon vos souhaits et besoins.
 Voici le lien vers Protosint de Pixelbubble: https://github.com/pixelbubble/ProtOSINT
