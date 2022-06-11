@@ -2,6 +2,8 @@
 # File name          : prot1ntelligence.py
 # Author             : GitHub: @C3n7ral051nt4g3ncy
 # Creation Date      : 09 June 2022 (Script started on 01/05/2022)
+# Fork               : 3 modules out of 7 Modules are based on ProtOSINT from PixelBubble: https://github.com/pixelbubble/ProtOSINT
+# Last Update        : Saturday 11th of June 2022, Adding Fork and another Module for Direct PGP Key download locally
 
 # Py library
 from bs4 import BeautifulSoup
@@ -227,6 +229,33 @@ def pgpkeyinformation():
 	DELTA: Get the ProtonMail user PGP Key and information
 
 	"""
+    choice = input(
+        """\033[1m\nView PGP Key in Terminal ("T") or Download Key("D")?\n\u001b[33m\nVoir cle PGP dans Terminal ("T") ou Telechargement directe ("D")?\n\n\u001b[32mD/T: """)
+
+    if choice == "T":
+        pgpkeyview()
+
+    if choice == "D":
+        pgpkeydirectdownload()
+
+
+def pgpkeydirectdownload():
+    """
+    Download PGP Key Directly
+
+    """
+
+    query = input(
+        """\nInput Target email to Download PGP Key\n\u001b[33mEntrez le Mail de la cible pour Telechargement directe\u001b[32m: """)
+    webbrowser.open("https://api.protonmail.ch/pks/lookup?op=get&search=" + query)
+
+
+def pgpkeyview():
+    """
+    View PGP Key in Terminal
+
+    """
+
     invalidEmail = True
     regexEmail = "([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)"
 
@@ -330,16 +359,16 @@ def main():
 
     while True:
         choice = input(
-            """\033[1mMake Choice/\u001b[33mFaire un Choix\u001b[32m\033[1m - alpha | bravo | charlie | delta | echo :\033[0m\u001b[32m """)
-        if choice == "alpha":
+            """\033[1mMake Choice by typing the letter (Example:"A"): \u001b[33m\nFaire un Choix en tapant la lettre (Exemple:"A"): \u001b[32m\033[1m\n\n[A] ALPHA (status) | [B] BRAVO (Footprints) | [C] CHARLIE (DarkWeb) | [D] - DELTA (PGP) | [E] - ECHO (IP): \033[0m\u001b[32m""")
+        if choice == "A":
             protonmailaccountcheck()
-        if choice == "bravo":
+        if choice == "B":
             emailtraces()
-        if choice == "charlie":
+        if choice == "C":
             darkwebtraces()
-        if choice == "delta":
+        if choice == "D":
             pgpkeyinformation()
-        if choice == "echo":
+        if choice == "E":
             protonvpnipsearch()
 
         inp = input("\n\n\u001b[32m\033[1mContinue Y/N: ")
