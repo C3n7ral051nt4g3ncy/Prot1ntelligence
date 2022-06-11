@@ -125,6 +125,6 @@ This tool took me a good few weeks to make, if you like it and it's useful for y
   
   
 # Mention 
-The tool has 3 modules based on Protosint made by **Pixelbubble**.
+The tool has 3 modules based on **PROTOSINT** made by **Pixelbubble**.
 As Protosint does not work for a module, and is missing some search modules, that is why I decided to make something different for my first project but some code and ideas was forked from:
 https://github.com/pixelbubble/ProtOSINT
