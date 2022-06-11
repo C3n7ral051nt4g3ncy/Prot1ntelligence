@@ -350,7 +350,7 @@ def protonvpnipsearch():
 def main():
     printprot1ntelligencebanner()
     choice = input(
-        """\033[1m\u001b[32mType "c" to check API Status""")
+        """\033[1m\u001b[32mType "c" to check API Status: """)
     if choice == "c":
         checkprotonapistatus()
     choice = input("""\033[1m\u001b[32mView Modules? /\u001b[33m Voir Modules?\u001b[32m "Y" or "N":\033[0m\u001b[32m """)
