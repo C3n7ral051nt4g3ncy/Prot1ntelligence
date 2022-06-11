@@ -359,7 +359,7 @@ def main():
 
     while True:
         choice = input(
-            """\033[1mMake Choice by typing the letter (Example:"A"): \u001b[33m\nFaire un Choix en tapant la lettre (Exemple:"A"): \u001b[32m\033[1m\n\n[A] ALPHA (status) | [B] BRAVO (Footprints) | [C] CHARLIE (DarkWeb) | [D] - DELTA (PGP) | [E] - ECHO (IP): \033[0m\u001b[32m""")
+            """\033[1mMake Choice by typing the letter (Example:"A"): \u001b[33m\nFaire un Choix en tapant la lettre (Exemple:"A"): \u001b[32m\033[1m\n\n[A] ALPHA (status | [B] BRAVO | [C] CHARLIE | [D] - DELTA | [E] - ECHO : \033[0m\u001b[32m""")
         if choice == "A":
             protonmailaccountcheck()
         if choice == "B":
