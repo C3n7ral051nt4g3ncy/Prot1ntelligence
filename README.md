@@ -124,7 +124,7 @@ Thanks also to my CTF Teammates:[Cyberologue](https://twitter.com/Cyberologue_fr
 This tool took me a good few weeks to make, if you like it and it's useful for you, please feel free to make a donation for my work by clicking on the **KO-FI** Badge or the **BITCOIN** Badge at the top of this readme file, simply scan the BTC QR Code to get my BTC Address. 
   
   
-# Mention 
+# Mention 📢
 The tool has 3 modules based on **PROTOSINT** made by **Pixelbubble**.
 As Protosint does not work for a module, and is missing some search modules, that is why I decided to make something different for my first project but some code and ideas was forked from:
 https://github.com/pixelbubble/ProtOSINT
