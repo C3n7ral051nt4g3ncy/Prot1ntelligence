@@ -350,7 +350,7 @@ def protonvpnipsearch():
 def main():
     printprot1ntelligencebanner()
     choice = input(
-        """\033[1m\u001b[32mType "c" to check Proton API Status \n\033[1m\u001b[33mTapez "c" pour statut API ProtonMail: \033[0m\u001b[32m""")
+        """\033[1m\u001b[32mType "c" to check API Status""")
     if choice == "c":
         checkprotonapistatus()
     choice = input("""\033[1m\u001b[32mView Modules? /\u001b[33m Voir Modules?\u001b[32m "Y" or "N":\033[0m\u001b[32m """)
@@ -359,7 +359,7 @@ def main():
 
     while True:
         choice = input(
-            """\033[1mMake Choice by typing the letter (Example:"A"): \u001b[33m\nFaire un Choix en tapant la lettre (Exemple:"A"): \u001b[32m\033[1m\n\n[A] ALPHA (status | [B] BRAVO | [C] CHARLIE | [D] - DELTA | [E] - ECHO : \033[0m\u001b[32m""")
+            """\033[1mMake Choice by typing the letter (Example:"A"): \u001b[33m\nFaire un Choix en tapant la lettre (Exemple:"A"): \u001b[32m\033[1m\n\n[A] ALPHA | [B] BRAVO | [C] CHARLIE | [D] - DELTA | [E] - ECHO : \033[0m\u001b[32m""")
         if choice == "A":
             protonmailaccountcheck()
         if choice == "B":
