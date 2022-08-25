@@ -97,15 +97,15 @@ def printprot1ntelligenceintro():
     prot1ntelligenceintro = """
 \u001b[31m\U0001F575\033[1m INTELLIGENCE COLLECTION METHOD: \n\u001b[31mCHOIX METHODE DE COLLECTE DE RENSEIGNEMENT:\n
 
-\u001b[32m\U0001F50D \033[1mALPHA\033[0m\u001b[32m: Type alpha to check if a ProtonMail account exists\n\u001b[33m\033[1mALPHA\033[0m\u001b[33m: Tapez alpha pour verifier si un compte ProtonMail existe 
+\u001b[32m\U0001F50D \033[1mALPHA\033[0m\u001b[32m: Type A to check if a ProtonMail account exists\n\u001b[33m\033[1mALPHA\033[0m\u001b[33m: Tapez A pour verifier si un compte ProtonMail existe 
 
-\u001b[32m\U0001F4E1 \033[1mBRAVO\033[0m\u001b[32m: Type bravo to run a search on the Proton email to check digital footprints\n\u001b[33m\033[1mBRAVO\033[0m\u001b[33m: Tapez bravo pour lancer une verification sur le mail Proton et voir l'empreinte numérique 
+\u001b[32m\U0001F4E1 \033[1mBRAVO\033[0m\u001b[32m: Type B to run a search on the Proton email to check digital footprints\n\u001b[33m\033[1mBRAVO\033[0m\u001b[33m: Tapez B pour lancer une verification sur le mail Proton et voir l'empreinte numérique 
 
-\u001b[32m\U0001F3F4 \033[1mCHARLIE\033[0m\u001b[32m: Type charlie to run a Dark Web search on the Proton Email\n\u001b[33m\033[1mCHARLIE\033[0m\u001b[33m: Tapez charlie pour lancer une verification Dark Net sur le mail
+\u001b[32m\U0001F3F4 \033[1mCHARLIE\033[0m\u001b[32m: Type C to run a Dark Web search on the Proton Email\n\u001b[33m\033[1mCHARLIE\033[0m\u001b[33m: Tapez C pour lancer une verification Dark Net sur le mail
 
-\u001b[32m\U0001F511 \033[1mDELTA\033[0m\u001b[32m: Type delta to get ProtonMail user PGP Key and Key creation date\n\u001b[33m\033[1mDELTA\033[0m\u001b[33m: Tapez delta pour obtenir la cle PGP de l'utilisateur et date de creation de la cle
+\u001b[32m\U0001F511 \033[1mDELTA\033[0m\u001b[32m: Type D to get ProtonMail user PGP Key and Key creation date\n\u001b[33m\033[1mDELTA\033[0m\u001b[33m: Tapez D pour obtenir la cle PGP de l'utilisateur et date de creation de la cle
 
-\u001b[32m\U0001F4BB \033[1mECHO\033[0m\u001b[32m: Type echo to verify if an IP address belongs to a ProtonVPN user\n\u001b[33m\033[1mECHO\033[0m\u001b[33m: Tapez echo pour verifier si une adresse IP appartient a un utilisateur ProtonVPN\u001b[32m
+\u001b[32m\U0001F4BB \033[1mECHO\033[0m\u001b[32m: Type E to verify if an IP address belongs to a ProtonVPN user\n\u001b[33m\033[1mECHO\033[0m\u001b[33m: Tapez E pour verifier si une adresse IP appartient a un utilisateur ProtonVPN\u001b[32m
 """
     print(prot1ntelligenceintro)
 
