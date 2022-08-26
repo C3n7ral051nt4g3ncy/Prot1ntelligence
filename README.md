@@ -116,7 +116,6 @@ Thanks to [Joe Gray](https://twitter.com/C_3PJoe) for his great courses and the 
   
 Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Seitz](https://twitter.com/jms_dot_py) for their OSINT Automation with Python knowledge sharing
 
-Thanks also to my CTF Teammates:[Cyberologue](https://twitter.com/Cyberologue_fr), [D0c_Kali](https://twitter.com/D0c_Kali), [fs0c131y](https://twitter.com/fs0c131y), [Gimli](https://twitter.com/BanPangar), [Mauraura](https://twitter.com/Mauraura4)
 <br>
 <br>
   
