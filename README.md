@@ -128,7 +128,7 @@ If you would like to change some code within the tool or if you have any suggest
   
 Thanks to [Joe Gray](https://twitter.com/C_3PJoe) for his great courses and the knowledge he passed on to me.
   
-Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Seitz](https://twitter.com/jms_dot_py) for their OSINT Automation with Python knowledge sharing, [devnode777](https://github.com/devnode777).
+Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Seitz](https://twitter.com/jms_dot_py) for their OSINT Automation with Python knowledge sharing, and thanks to [devnode777](https://github.com/devnode777) for 2 changes.
 
 <br>
 <br>
