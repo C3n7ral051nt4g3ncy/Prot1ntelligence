@@ -131,7 +131,10 @@ def protonmailaccountcheck():
             print("\u001b[31m\n\nProtonMail user does not exist\u001b[32m")
             invalidEmail = True
 
-    requestProton = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + str(mail))
+    requestProton = requests.get(
+        f'https://api.protonmail.ch/pks/lookup?op=index&search={str(mail)}'
+    )
+
     bodyResponse = requestProton.text
 
     protonmailaccountdoesnotexist = "info:1:0"
@@ -197,7 +200,7 @@ def darkwebbrowser():
 
     """
     query = input("""\nInput Target email or any query to search the Dark Web (example: darkmatterproject@protonmail.com)\n\u001b[33mMail de la cible\u001b[32m: """)
-    webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
+    webbrowser.open(f"https://ahmia.fi/search/?q={query}")
 
 
 # Search from Terminal with search results displayed within the terminal
@@ -209,7 +212,7 @@ def darkwebterminal():
     """
 
     query = input("Input target email: ")
-    URL = ("https://ahmia.fi/search/?q=%s" % query)
+    URL = f"https://ahmia.fi/search/?q={query}"
     page = requests.get(URL)
     request = requests.get(URL)
 
@@ -247,7 +250,7 @@ def pgpkeydirectdownload():
 
     query = input(
         """\nInput Target email to Download PGP Key\n\u001b[33mEntrez le Mail de la cible pour Telechargement directe\u001b[32m: """)
-    webbrowser.open("https://api.protonmail.ch/pks/lookup?op=get&search=" + query)
+    webbrowser.open(f"https://api.protonmail.ch/pks/lookup?op=get&search={query}")
 
 
 def pgpkeyview():
@@ -271,7 +274,10 @@ def pgpkeyview():
             print("\u001b[31m\n\nProtonMail user does not exist\u001b[32m")
             invalidEmail = True
 
-    requestProton = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + str(mail))
+    requestProton = requests.get(
+        f'https://api.protonmail.ch/pks/lookup?op=index&search={str(mail)}'
+    )
+
     bodyResponse = requestProton.text
 
     protonmailaccountdoesnotexist = "info:1:0"
@@ -287,18 +293,18 @@ def pgpkeyview():
         regexPattern2 = "4096:(.*)::"  # RSA 4096-bit (Secure but slow)
         regexPattern3 = "22::(.*)::"  # X25519 (Modern, fastest, secure)
         try:
-            timestamp = int(re.search(regexPattern1, bodyResponse).group(1))
+            timestamp = int(re.search(regexPattern1, bodyResponse)[1])
             dtObject = datetime.fromtimestamp(timestamp)
             print("\nPGP Key Date and Creation Time:", dtObject)
             print("Encryption Standard : RSA 2048-bit")
         except:
             try:
-                timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
+                timestamp = int(re.search(regexPattern2, bodyResponse)[1])
                 dtObject = datetime.fromtimestamp(timestamp)
                 print("PGP Key Date and Creation Time:", dtObject)
                 print("Encryption Standard : RSA 4096-bit ")
             except:
-                timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
+                timestamp = int(re.search(regexPattern3, bodyResponse)[1])
                 dtObject = datetime.fromtimestamp(timestamp)
                 print("PGP Key Date and Creation Time:", dtObject)
                 print("Encryption Standard : ECC Curve25519 ")
@@ -313,7 +319,10 @@ def pgpkeyview():
             # Text if the input is valid
             if responseFromUser == "Y":
                 invalidResponse = False
-                requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search=' + str(mail))
+                requestProtonPublicKey = requests.get(
+                    f'https://api.protonmail.ch/pks/lookup?op=get&search={str(mail)}'
+                )
+
                 bodyResponsePublicKey = requestProtonPublicKey.text
                 print(bodyResponsePublicKey)
             elif responseFromUser == "N":
