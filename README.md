@@ -17,7 +17,7 @@
 </p>
 <br>
     
-# PROT1NTELLIGENCE 🕵🏻‍♂️
+# PROTINTELLIGENCE 🕵🏻‍♂️
 **Prot1ntelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
 You will be able to gain intelligence on:
 - ProtonMail accounts/users
