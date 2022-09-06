@@ -22,7 +22,7 @@
 You will be able to gain intelligence on:
 - ProtonMail accounts/users
 - ProtonVPN IP adresses
-- ProtonMail PGP Keys of users
+- ProtonMail PGP Key of users
 - Digital Footprints left by the ProtonMail user on the Clear and Dark Web.
 <br>
 
