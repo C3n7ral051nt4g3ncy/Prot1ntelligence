@@ -18,25 +18,21 @@
 <br>
     
 # PROTINTELLIGENCE 🕵🏻‍♂️
-**Prot1ntelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
-You will be able to gain intelligence on:
+**ProtINTelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
+You will be able to get intelligence on:
 - ProtonMail accounts/users
-- ProtonVPN IP adresses
+- ProtonVPN users IP adresses
 - ProtonMail PGP Key of users
-- Digital Footprints left by the ProtonMail user on the Clear and Dark Web.
+- Digital Footprints left by the ProtonMail user on the clear and Dark Web.
 <br>
 
   
 # Requirements 🐍
 [Python 3](https://www.python.org/downloads/)<br>
 
-Make sure that you have:
-- Beautiful Soup (pip3 install beautifulsoup4)
-- Requests (pip3 install requests)
-- Google (pip3 install google)
 <br>
   
-# Prot1ntelligence video 🎬
+# Protintelligence video 🎬
 When viewing on Youtube, make sure you view **from a PC**, and put YouTube video **settings to 4K**.
   
 <a href="https://youtu.be/Ufw1PEwfTLo" target="_blank">
@@ -67,12 +63,12 @@ pip3 install -r requirements.txt depending on your set-up.
 ```
 
 ```
-python3 prot1ntelligence.py
+python3 protintel.py
 ```
 
 <br>
   
-# Prot1ntelligence's Modules
+# Protintelligence Options
 
 <img width="133" src="https://user-images.githubusercontent.com/104733166/172962265-f2596b54-8405-42b9-b573-449d22dfcb5f.png"/>
 
@@ -85,22 +81,22 @@ It also works for custom domains and "catch all" email addresses.
 ### BRAVO 📡
 ``` 
 The Bravo Module is a logical follow to Module ALPHA, you confirmed that the email address of the target is VALID.
-Now you can use BRAVO to check for Digital Footprints of the target on open source websites,
+Now you can use BRAVO to check for Digital Footprints on open source websites,
 simply by running a search with the target email using quotation marks as a DORK to get an exact match.
 ```
 ### CHARLIE 🏴
 ``` 
-The Charlie Module runs a search on the dark web Target Digital Footprints
+The Charlie Module runs a search on the dark web to check the target email digital footprints
 ``` 
 ### DELTA 🔑
 ``` 
-The Delta Module finds information on the ProtonMail user PGP Key, Key creation date and Encryption standard.
+The Delta Module gets information on the ProtonMail user PGP Key, Key creation date and Encryption standard.
 If we are sure the target didn't generate a new PGP Key, the date is also the ProtonMail account creation date.
-You can also request the download of the PGP Key, and add it to your KeyChain to send an encrypted email to the target. 
+You can also request the download of the PGP Key, and add it to your KeyChain to send an encrypted email to the user. 
 ```  
 ### ECHO 💻
 ``` 
-The Echo Module confirms if the IP address you have for the target is an IP address belonging to ProtonVPN 
+The Echo Module confirms if the IP address you have for the target is an IP address belonging to a ProtonVPN user.
 ```   
 <br>
   
@@ -134,10 +130,10 @@ Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Sei
 <br>
   
  # Support 💗
-This tool took me a good few weeks to make, if you like it and it's useful for you, please feel free to make a donation for my work by clicking on the **KO-FI** Badge or the **BITCOIN** Badge at the top of this readme file, simply scan the BTC QR Code to get my BTC Address. 
+This tool took me a good few weeks to make, if you like it and if it's useful for you, please feel free to make a donation for my work by clicking on the **KO-FI** Badge or the **BITCOIN** Badge at the top of this .README file, or simply scan the BTC QR Code to get my BTC Address. 
   
   
 # Mention 📢
-The tool has 3 modules based on **PROTOSINT** made by **Pixelbubble**.
-As Protosint does not work for a module, and is missing some search modules, that is why I decided to make something different for my first project but some code and ideas was forked from:
+The tool has 3 modules based on **PROTOSINT** made by **@Pixelbubble**.
+As Protosint did not work correctly for me and is missing some search modules that I wanted, I decided to make something different for my first project, but a little bit of code and ideas was forked from:
 https://github.com/pixelbubble/ProtOSINT
