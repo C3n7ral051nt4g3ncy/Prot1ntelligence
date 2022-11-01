@@ -79,7 +79,7 @@ def printprotintelligenceintro():
 
 \u001b[32m\U0001F4E1 \033[1mBRAVO\033[0m\u001b[32m: Proton Email search to check for digital footprints\n
 
-\u001b[32m\U0001F3F4 \033[1mCHARLIE\033[0m\u001b[32m: Dark Web search\n 
+\u001b[32m\U0001F3F4 \033[1mCHARLY\033[0m\u001b[32m: Dark Web search\n 
 
 \u001b[32m\U0001F511 \033[1mDELTA\033[0m\u001b[32m: Get ProtonMail user PGP Key + Key creation date\n
 
@@ -152,7 +152,7 @@ def emailtraces():
 
 def darkwebtraces():
     """
-    CHARLIE : Check Dark Web Traces
+    CHARLY : Check Dark Web Traces
     """
 
     print("\033[1m\u001b[32m\nChecking server status\n")
