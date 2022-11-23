@@ -140,7 +140,9 @@ def make_api_request(mail):
             print("\u001b[31m\n\nAPI requests limit exceeded...")
 
         elif is_business_address:
-            print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
+            print("\u001b[33m\nProtonmail API does not handle business emails, "
+                  "but still provides you with data on account creation date + PGP Key")
+            print("(see Delta Option)\n\n\033[0m")
             return True
         else:
             print("\u001b[31m\n\nProtonMail account is NOT VALID")
@@ -177,7 +179,6 @@ def protonmailaccountcheck():
     make_api_request(mail)
 
 
-
 # Email search for Digital Footprints
 
 def emailtraces():
@@ -185,8 +186,11 @@ def emailtraces():
     BRAVO : Check Email Traces with a Google Dork
     """
 
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5)\
+                AppleWebKit/537.36 (KHTML, like Gecko) Cafari/537.36'}
+
     print("\033[1m\u001b[32m\nChecking server status\n")
-    response = requests.get('https://google.com')
+    response = requests.get('https://google.com', headers)
     print(response)
     if response.status_code == 200:
         print('Status: Success!\n')
@@ -196,9 +200,9 @@ def emailtraces():
     searchfor = input(
         """\u001b[32mEnter Target Email in quotation marks!(Example:"admin@protonmail.com"): """)
     print("\nProcessing request...\n")
-    for result in search(searchfor, tld="com", num=200, stop=200, pause=2):
-        print(result)
 
+    for result in search(searchfor, tld="com", stop=10, pause=2):
+        print(result)
 
 
 # DarkWeb email search
@@ -227,7 +231,6 @@ def darkwebtraces():
         darkwebterminal()
 
 
-
 # Dark Web Search with Browser auto-opening
 
 def darkwebbrowser():
@@ -239,7 +242,7 @@ def darkwebbrowser():
     webbrowser.open(f"https://ahmia.fi/search/?q={query}")
 
 
-# Search results displayed within the terminal
+# Dark web search results displayed within the terminal
 
 def darkwebterminal():
     """
@@ -260,7 +263,7 @@ def darkwebterminal():
         print(a_href["href"])
 
 
-# Get ProtonMail User PGP Key
+# Get ProtonMail user PGP Key
 
 def pgpkeyinformation():
     """
@@ -278,6 +281,8 @@ def pgpkeyinformation():
         pgpkeydirectdownload()
 
 
+# Download PGP Key
+
 def pgpkeydirectdownload():
     """
     Download PGP Key Directly
@@ -288,6 +293,8 @@ def pgpkeydirectdownload():
         """\nInput Target email to Download PGP Key: """)
     webbrowser.open(f"https://api.protonmail.ch/pks/lookup?op=get&search={query}")
 
+
+# extract PGP Key
 
 def extract_key(source_code):
     """
@@ -301,6 +308,7 @@ def extract_key(source_code):
     except AttributeError:
         return None
 
+# View PGP Key within terminal
 
 def pgpkeyview():
     """
@@ -361,7 +369,6 @@ def pgpkeyview():
                     invalidResponse = True
 
 
-
 # Check user IP belongs to ProtonVPN user
 
 def protonvpnipsearch():
@@ -386,6 +393,7 @@ def protonvpnipsearch():
         print(
             "\u001b[31m\033[1m\n\nThis IP does not belong to a ProtonVPN user\n")
 
+# main
 
 def main():
     printprotintelligencebanner()
@@ -400,7 +408,7 @@ def main():
     while True:
         choice = input("""\033[1mInput CAPITAL LETTER from each option to make choice!\n"""
                        """\nA | B | C | D |E"""
-                       """\n:  """)
+                       """\nInput choice:  """)
         if choice == "A":
             protonmailaccountcheck()
         if choice == "B":
@@ -415,7 +423,6 @@ def main():
         inp = input("\n\n\u001b[32m\033[1mContinue [Y] or [N]: ")
         if inp.lower() == 'n':
             break
-
 
 
 
