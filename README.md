@@ -127,7 +127,7 @@ If you would like to change some code within the tool or if you have any suggest
   
 # Thanks 🙏
 
-<img width="66" src="https://user-images.githubusercontent.com/104733166/203551375-1b687dc5-00a2-4b6c-aece-032d79785523.png"> First of all, a huge thanks to [@Kr0wZ](https://github.com/Kr0wZ), v2.0 of protintelligence is thanks to him, he fixed the email search function which now uses Selenium. The code used is from Kr0wZ's own code from [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT)
+<img width="66" src="https://user-images.githubusercontent.com/104733166/203551375-1b687dc5-00a2-4b6c-aece-032d79785523.png"> <br> First of all, a huge thanks to [@Kr0wZ](https://github.com/Kr0wZ), v2.0 of protintelligence is thanks to him, he fixed the email search function which now uses Selenium. The code used is from Kr0wZ's own code from [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT)
   
 Thanks to [Joe Gray](https://twitter.com/C_3PJoe) for his great courses and the knowledge he passed on to me.
   
