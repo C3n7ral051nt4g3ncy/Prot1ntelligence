@@ -24,6 +24,9 @@ You will be able to get intelligence on:
 - ProtonVPN users IP adresses
 - ProtonMail PGP Key of users
 - Digital Footprints left by the ProtonMail user on the clear and Dark Web.
+
+# v2.0 
+It was created on 23/11/2022 and the fix was made by [@Kr0wZ](https://github.com/Kr0wZ) by using his own script called [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT), which uses the selenium module to check if an email is valid.
 <br>
 
   
@@ -121,6 +124,8 @@ If you would like to change some code within the tool or if you have any suggest
 <br>
   
 # Thanks 🙏
+
+<img width="66" src="https://user-images.githubusercontent.com/104733166/203551375-1b687dc5-00a2-4b6c-aece-032d79785523.png"> First of all, a huge thanks to [@Kr0wZ](https://github.com/Kr0wZ), v2.0 of protintelligence is thanks to him, he fixed the email search function which now uses Selenium. The code used is from Kr0wZ's own code from [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT)
   
 Thanks to [Joe Gray](https://twitter.com/C_3PJoe) for his great courses and the knowledge he passed on to me.
   
