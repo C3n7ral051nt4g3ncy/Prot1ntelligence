@@ -2,6 +2,7 @@
 # File name          : protintel.py
 # Author             : GitHub: @C3n7ral051nt4g3ncy
 # Forks              : 3 modules out of 7 are based off ProtOSINT from @PixelBubble
+# v2.0               : Kr0wZ Fixed first function with selenium
 
 
 
