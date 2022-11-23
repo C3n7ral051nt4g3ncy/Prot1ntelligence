@@ -89,6 +89,58 @@ def printprotintelligenceintro():
 
 
 
+
+# Retrieve the timestamp of created email addreses
+
+def extract_timestamp(mail, source_code):
+
+    try:
+        timestamp = re.sub(':', '', re.search(':[0-9]{10}::', source_code.text).group(0))
+        creation_date = datetime.fromtimestamp(int(timestamp))
+
+        return creation_date
+
+    except AttributeError:
+        return None
+
+
+
+# Perform the API request
+
+def make_api_request(mail):
+    try:
+        request = requests.get("https://account.proton.me/api/users/available", 
+            headers={
+                "x-pm-appversion":"web-account@5.0.11.11",
+                "x-pm-locale":"en_US"
+            },
+            params={
+                "Name":mail,
+                "ParseDomain":"1"
+            })
+
+        #Return code 429 = API limit exceeded
+        if(request.status_code == 409):
+            source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+            creation_date = extract_timestamp(mail, source_code)
+
+            print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
+
+            return True
+
+        elif(request.status_code == 429):
+            print("\u001b[31m\n\nAPI requests limit exceeded...")
+
+        else:
+            print("\u001b[31m\n\nProtonMail account is NOT VALID")
+
+        return False
+
+    except:
+        print("Error when requesting the API")
+        return False
+
+
 # ProtonMail account validity check
 
 def protonmailaccountcheck():
@@ -111,17 +163,7 @@ def protonmailaccountcheck():
             print("\u001b[31m\n\nProtonMail user does not exist\u001b[32m")
             invalidEmail = True
 
-    requestProton = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + str(mail))
-    bodyResponse = requestProton.text
-
-    protonmailaccountdoesnotexist = "info:1:0"
-    protonmailaccountexists = "info:1:1"
-
-    if protonmailaccountdoesnotexist in bodyResponse:
-        print("\u001b[31m\n\nProtonMail account is NOT VALID")
-
-    if protonmailaccountexists in bodyResponse:
-        print("\033[1m\n\nProtonMail Account is VALID!\033[0m\U0001F4A5")
+    make_api_request(mail)
 
 
 
@@ -186,7 +228,6 @@ def darkwebbrowser():
     webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
 
 
-
 # Search results displayed within the terminal
 
 def darkwebterminal():
@@ -206,9 +247,6 @@ def darkwebterminal():
     soup = BeautifulSoup(page.content, "html.parser")
     for a_href in soup.find_all("a", href=True):
         print(a_href["href"])
-
-
-
 
 
 # Get ProtonMail User PGP Key
@@ -240,6 +278,20 @@ def pgpkeydirectdownload():
     webbrowser.open("https://api.protonmail.ch/pks/lookup?op=get&search=" + query)
 
 
+def extract_key(source_code):
+    """
+    Extract the key type and length of the email address
+    """
+
+    regex = ':[0-9]{2,4}:(.*)::'
+
+    try:
+        key = re.search(regex, source_code.text).group(0).split(":")[1]
+        return key
+    except AttributeError:
+        return None
+
+
 def pgpkeyview():
     """
     View PGP Key in Terminal
@@ -261,38 +313,20 @@ def pgpkeyview():
             print("\u001b[31m\n\nProtonmail user does not exist\u001b[32m")
             invalidEmail = True
 
-    requestProton = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + str(mail))
-    bodyResponse = requestProton.text
+    if(make_api_request(mail)):
 
-    protonmailaccountdoesnotexist = "info:1:0"
-    protonmailaccountexists = "info:1:1"
+        #Refractor this by removing all of this and use the function extract_timestamp(email) instead
+        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
 
-    if protonmailaccountdoesnotexist in bodyResponse:
-        print("\u001b[31m\nProtonMail account is NOT VALID")
+        timestamp = extract_timestamp(mail, source_code)
+        key = extract_key(source_code)
 
-    if protonmailaccountexists in bodyResponse:
-        print("\033[1m\nProtonMail account PGP Key Found!\n \033[0m\u001b[32m")
+        print("PGP Key Date and Creation Time:", str(timestamp))
 
-        regexPattern1 = "2048:(.*)::"  # RSA 2048-bit (Older but faster)
-        regexPattern2 = "4096:(.*)::"  # RSA 4096-bit (Secure but slow)
-        regexPattern3 = "22::(.*)::"  # X25519 (Modern, fastest, secure)
-        try:
-            timestamp = int(re.search(regexPattern1, bodyResponse).group(1))
-            dtObject = datetime.fromtimestamp(timestamp)
-            print("PGP Key Date and Creation Time:", dtObject)
-            print("Encryption Standard : RSA 2048-bit")
-        except:
-            try:
-                timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
-                dtObject = datetime.fromtimestamp(timestamp)
-                print("PGP Key Date and Creation Time:", dtObject)
-                print("Encryption Standard : RSA 4096-bit ")
-            except:
-                timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
-                dtObject = datetime.fromtimestamp(timestamp)
-                print("PGP Key Date and Creation Time:", dtObject)
-                print("Encryption Standard : ECC Curve25519 ")
-
+        if(key != "22"):
+            print("Encryption Standard : RSA " + key + "-bit")
+        else:
+            print("Encryption Standard : ECC Curve25519")
 
         # Get the USER PGP Key
         invalidResponse = True
