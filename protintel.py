@@ -325,43 +325,40 @@ def pgpkeyview():
 
     #Business addresses are not handled with the new API, so there is a risk that the email doesn't exists and returns a random timestamp
 
-    if (make_api_request(mail)):
-        source_code = requests.get(
-            f'https://api.protonmail.ch/pks/lookup?op=index&search={mail}'
-        )
+    if(make_api_request(mail)):
+        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
 
-
-        timestamp = extract_timestamp(mail, source_code)
-        key = extract_key(source_code)
-
-        print("\u001b[32mPGP Key Date and Creation Time:", timestamp)
-
-        if(key != "22"):
-            print("\u001b[32mEncryption Standard : RSA " + key + "-bit")
+        if("info:1:0" in source_code.text):
+            print("\u001b[31m\n\nCan't retrieve the PGP information\u001b[32m")
         else:
-            print("\u001b[32mEncryption Standard : ECC Curve25519")
+            timestamp = extract_timestamp(mail, source_code)
+            key = extract_key(source_code)
 
-        # Get the USER PGP Key
-        invalidResponse = True
+            print("\u001b[32mPGP Key Date and Creation Time:", str(timestamp))
 
-        print("\033[1m\nGet user PGP Key? ")
-        while invalidResponse:
-            # Input
-            responseFromUser = input("""\033[1m [Y] or [N]:\033[0m """)
-            # Text if the input is valid
-            if responseFromUser == "Y":
-                invalidResponse = False
-                requestProtonPublicKey = requests.get(
-                    f'https://api.protonmail.ch/pks/lookup?op=get&search={str(mail)}'
-                )
-
-                bodyResponsePublicKey = requestProtonPublicKey.text
-                print(bodyResponsePublicKey)
-            elif responseFromUser == "N":
-                invalidResponse = False
+            if(key != "22"):
+                print("\u001b[32mEncryption Standard : RSA " + key + "-bit")
             else:
-                print("Input Not Valid")
-                invalidResponse = True
+                print("\u001b[32mEncryption Standard : ECC Curve25519")
+
+            # Get the USER PGP Key
+            invalidResponse = True
+
+            print("\033[1m\nGet user PGP Key? ")
+            while invalidResponse:
+                # Input
+                responseFromUser = input("""\033[1m [Y] or [N]:\033[0m """)
+                # Text if the input is valid
+                if responseFromUser == "Y":
+                    invalidResponse = False
+                    requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search=' + str(mail))
+                    bodyResponsePublicKey = requestProtonPublicKey.text
+                    print(bodyResponsePublicKey)
+                elif responseFromUser == "N":
+                    invalidResponse = False
+                else:
+                    print("Input Not Valid")
+                    invalidResponse = True
 
 
 
