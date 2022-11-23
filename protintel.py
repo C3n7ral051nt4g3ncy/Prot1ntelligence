@@ -104,41 +104,55 @@ def extract_timestamp(mail, source_code):
         return None
 
 
+# Check if this is a business email address
+
+def check_domain_name(mail):
+    if(mail.split("@")[1] == "protonmail.com" or mail.split("@")[1] == "proton.me"):
+        return False
+    else:
+        return True
+
 
 # Perform the API request
 
 def make_api_request(mail):
-    try:
-        request = requests.get("https://account.proton.me/api/users/available", 
-            headers={
-                "x-pm-appversion":"web-account@5.0.11.11",
-                "x-pm-locale":"en_US"
-            },
-            params={
-                "Name":mail,
-                "ParseDomain":"1"
-            })
+    # try:
+    request = requests.get("https://account.proton.me/api/users/available", 
+        headers={
+            "x-pm-appversion":"web-account@5.0.11.11",
+            "x-pm-locale":"en_US"
+        },
+        params={
+            "Name":mail,
+            "ParseDomain":"1"
+        })
 
-        #Return code 429 = API limit exceeded
-        if(request.status_code == 409):
-            source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
-            creation_date = extract_timestamp(mail, source_code)
+    is_business_address = check_domain_name(mail)
 
-            print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
+    #Return code 429 = API limit exceeded
+    if(request.status_code == 409):
+        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+        creation_date = extract_timestamp(mail, source_code)
 
+        print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
+
+        return True
+
+    elif(request.status_code == 429):
+        print("\u001b[31m\n\nAPI requests limit exceeded...")
+
+    else:
+        if(is_business_address):
+            print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
             return True
-
-        elif(request.status_code == 429):
-            print("\u001b[31m\n\nAPI requests limit exceeded...")
-
         else:
             print("\u001b[31m\n\nProtonMail account is NOT VALID")
 
-        return False
+    return False
 
-    except:
-        print("Error when requesting the API")
-        return False
+    # except:
+    #     print("Error when requesting the API")
+    #     return False
 
 
 # ProtonMail account validity check
@@ -253,9 +267,9 @@ def darkwebterminal():
 
 def pgpkeyinformation():
     """
-	DELTA: Get ProtonMail user PGP Key & Info
+    DELTA: Get ProtonMail user PGP Key & Info
 
-	"""
+    """
 
     choice = input(
         """\033[1m\nView PGP Key in Terminal [T] or Download Key [D]: """)
@@ -313,20 +327,20 @@ def pgpkeyview():
             print("\u001b[31m\n\nProtonmail user does not exist\u001b[32m")
             invalidEmail = True
 
-    if(make_api_request(mail)):
+    #Business addresses are not handled with the new API, so there is a risk that the email doesn't exists and returns a random timestamp
 
-        #Refractor this by removing all of this and use the function extract_timestamp(email) instead
+    if(make_api_request(mail)):
         source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
 
         timestamp = extract_timestamp(mail, source_code)
         key = extract_key(source_code)
 
-        print("PGP Key Date and Creation Time:", str(timestamp))
+        print("\u001b[32mPGP Key Date and Creation Time:", str(timestamp))
 
         if(key != "22"):
-            print("Encryption Standard : RSA " + key + "-bit")
+            print("\u001b[32mEncryption Standard : RSA " + key + "-bit")
         else:
-            print("Encryption Standard : ECC Curve25519")
+            print("\u001b[32mEncryption Standard : ECC Curve25519")
 
         # Get the USER PGP Key
         invalidResponse = True
@@ -353,8 +367,8 @@ def pgpkeyview():
 
 def protonvpnipsearch():
     """
-	ECHO : Find out if user IP address is a ProtonVPN user
-	"""
+    ECHO : Find out if user IP address is a ProtonVPN user
+    """
 
     while True:
         try:
