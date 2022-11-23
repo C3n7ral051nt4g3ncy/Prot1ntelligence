@@ -96,11 +96,8 @@ def printprotintelligenceintro():
 def extract_timestamp(mail, source_code):
 
     try:
-        timestamp = re.sub(':', '', re.search(':[0-9]{10}::', source_code.text).group(0))
-        creation_date = datetime.fromtimestamp(int(timestamp))
-
-        return creation_date
-
+        timestamp = re.sub(':', '', re.search(':[0-9]{10}::', source_code.text)[0])
+        return datetime.fromtimestamp(int(timestamp))
     except AttributeError:
         return None
 
@@ -108,10 +105,7 @@ def extract_timestamp(mail, source_code):
 # Check if this is a business email address
 
 def check_domain_name(mail):
-    if(mail.split("@")[1] == "protonmail.com" or mail.split("@")[1] == "proton.me"):
-        return False
-    else:
-        return True
+    return mail.split("@")[1] not in ["protonmail.com", "proton.me"]
 
 
 # Perform the API request
@@ -131,8 +125,11 @@ def make_api_request(mail):
         is_business_address = check_domain_name(mail)
 
         #Return code 429 = API limit exceeded
-        if(request.status_code == 409):
-            source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+        if (request.status_code == 409):
+            source_code = requests.get(
+                f'https://api.protonmail.ch/pks/lookup?op=index&search={mail}'
+            )
+
             creation_date = extract_timestamp(mail, source_code)
 
             print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
@@ -142,12 +139,11 @@ def make_api_request(mail):
         elif(request.status_code == 429):
             print("\u001b[31m\n\nAPI requests limit exceeded...")
 
+        elif is_business_address:
+            print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
+            return True
         else:
-            if(is_business_address):
-                print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
-                return True
-            else:
-                print("\u001b[31m\n\nProtonMail account is NOT VALID")
+            print("\u001b[31m\n\nProtonMail account is NOT VALID")
 
         return False
 
@@ -240,7 +236,7 @@ def darkwebbrowser():
 
     """
     query = input("""\nInput Target email (example: darkmatterproject@protonmail.com: """)
-    webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
+    webbrowser.open(f"https://ahmia.fi/search/?q={query}")
 
 
 # Search results displayed within the terminal
@@ -252,7 +248,7 @@ def darkwebterminal():
     """
 
     query = input("Input target email: ")
-    URL = ("https://ahmia.fi/search/?q=%s" % query)
+    URL = f"https://ahmia.fi/search/?q={query}"
     page = requests.get(URL)
     request = requests.get(URL)
 
@@ -290,7 +286,7 @@ def pgpkeydirectdownload():
 
     query = input(
         """\nInput Target email to Download PGP Key: """)
-    webbrowser.open("https://api.protonmail.ch/pks/lookup?op=get&search=" + query)
+    webbrowser.open(f"https://api.protonmail.ch/pks/lookup?op=get&search={query}")
 
 
 def extract_key(source_code):
@@ -301,8 +297,7 @@ def extract_key(source_code):
     regex = ':[0-9]{2,4}:(.*)::'
 
     try:
-        key = re.search(regex, source_code.text).group(0).split(":")[1]
-        return key
+        return re.search(regex, source_code.text)[0].split(":")[1]
     except AttributeError:
         return None
 
@@ -330,16 +325,19 @@ def pgpkeyview():
 
     #Business addresses are not handled with the new API, so there is a risk that the email doesn't exists and returns a random timestamp
 
-    if(make_api_request(mail)):
-        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+    if (make_api_request(mail)):
+        source_code = requests.get(
+            f'https://api.protonmail.ch/pks/lookup?op=index&search={mail}'
+        )
 
-        if("info:1:0" in source_code.text):
+
+        if ("info:1:0" in source_code.text):
             print("\u001b[31m\n\nCan't retrieve the PGP information\u001b[32m")
         else:
             timestamp = extract_timestamp(mail, source_code)
             key = extract_key(source_code)
 
-            print("\u001b[32mPGP Key Date and Creation Time:", str(timestamp))
+            print("\u001b[32mPGP Key Date and Creation Time:", timestamp)
 
             if(key != "22"):
                 print("\u001b[32mEncryption Standard : RSA " + key + "-bit")
@@ -356,7 +354,10 @@ def pgpkeyview():
                 # Text if the input is valid
                 if responseFromUser == "Y":
                     invalidResponse = False
-                    requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search=' + str(mail))
+                    requestProtonPublicKey = requests.get(
+                        f'https://api.protonmail.ch/pks/lookup?op=get&search={str(mail)}'
+                    )
+
                     bodyResponsePublicKey = requestProtonPublicKey.text
                     print(bodyResponsePublicKey)
                 elif responseFromUser == "N":
@@ -396,7 +397,7 @@ def main():
     printprotintelligencebanner()
     choice = input(
         """\033[1m\u001b[32mType [c] or [C] to check Proton API Status: \033[0m\u001b[32m""")
-    if choice == "c" or choice == "C":
+    if choice in ["c", "C"]:
         checkprotonapistatus()
     choice = input("""\033[1mView All Options? \u001b[32m [Y] or [N]:\033[0m\u001b[32m """)
     if choice == "Y":
