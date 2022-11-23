@@ -141,8 +141,7 @@ def make_api_request(mail):
 
         elif is_business_address:
             print("\u001b[33m\nProtonmail API does not handle business emails, "
-                  "but still provides you with data on account creation date + PGP Key")
-            print("(see Delta Option)\n\n\033[0m")
+                  "but you can get account creation date + PGP Key")
             return True
         else:
             print("\u001b[31m\n\nProtonMail account is NOT VALID")
