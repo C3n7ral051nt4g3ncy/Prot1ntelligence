@@ -116,43 +116,43 @@ def check_domain_name(mail):
 # Perform the API request
 
 def make_api_request(mail):
-    # try:
-    request = requests.get("https://account.proton.me/api/users/available", 
-        headers={
-            "x-pm-appversion":"web-account@5.0.11.11",
-            "x-pm-locale":"en_US"
-        },
-        params={
-            "Name":mail,
-            "ParseDomain":"1"
-        })
+    try:
+        request = requests.get("https://account.proton.me/api/users/available", 
+            headers={
+                "x-pm-appversion":"web-account@5.0.11.11",
+                "x-pm-locale":"en_US"
+            },
+            params={
+                "Name":mail,
+                "ParseDomain":"1"
+            })
 
-    is_business_address = check_domain_name(mail)
+        is_business_address = check_domain_name(mail)
 
-    #Return code 429 = API limit exceeded
-    if(request.status_code == 409):
-        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
-        creation_date = extract_timestamp(mail, source_code)
+        #Return code 429 = API limit exceeded
+        if(request.status_code == 409):
+            source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+            creation_date = extract_timestamp(mail, source_code)
 
-        print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
+            print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
 
-        return True
-
-    elif(request.status_code == 429):
-        print("\u001b[31m\n\nAPI requests limit exceeded...")
-
-    else:
-        if(is_business_address):
-            print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
             return True
+
+        elif(request.status_code == 429):
+            print("\u001b[31m\n\nAPI requests limit exceeded...")
+
         else:
-            print("\u001b[31m\n\nProtonMail account is NOT VALID")
+            if(is_business_address):
+                print("\u001b[33m\n\nProtonmail API does not handle business protonmail email addresses. This email may not exist\033[0m")
+                return True
+            else:
+                print("\u001b[31m\n\nProtonMail account is NOT VALID")
 
-    return False
+        return False
 
-    # except:
-    #     print("Error when requesting the API")
-    #     return False
+    except:
+        print("Error when requesting the API")
+        return False
 
 
 # ProtonMail account validity check
