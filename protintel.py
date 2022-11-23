@@ -95,11 +95,8 @@ def printprotintelligenceintro():
 def extract_timestamp(mail, source_code):
 
     try:
-        timestamp = re.sub(':', '', re.search(':[0-9]{10}::', source_code.text).group(0))
-        creation_date = datetime.fromtimestamp(int(timestamp))
-
-        return creation_date
-
+        timestamp = re.sub(':', '', re.search(':[0-9]{10}::', source_code.text)[0])
+        return datetime.fromtimestamp(int(timestamp))
     except AttributeError:
         return None
 
@@ -120,8 +117,11 @@ def make_api_request(mail):
             })
 
         #Return code 429 = API limit exceeded
-        if(request.status_code == 409):
-            source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+        if (request.status_code == 409):
+            source_code = requests.get(
+                f'https://api.protonmail.ch/pks/lookup?op=index&search={mail}'
+            )
+
             creation_date = extract_timestamp(mail, source_code)
 
             print("\033[1m\n\nProtonMail Account is VALID! Creation date: " + str(creation_date) + " \033[0m\U0001F4A5")
@@ -225,7 +225,7 @@ def darkwebbrowser():
 
     """
     query = input("""\nInput Target email (example: darkmatterproject@protonmail.com: """)
-    webbrowser.open("https://ahmia.fi/search/?q=%s" % query)
+    webbrowser.open(f"https://ahmia.fi/search/?q={query}")
 
 
 # Search results displayed within the terminal
@@ -237,7 +237,7 @@ def darkwebterminal():
     """
 
     query = input("Input target email: ")
-    URL = ("https://ahmia.fi/search/?q=%s" % query)
+    URL = f"https://ahmia.fi/search/?q={query}"
     page = requests.get(URL)
     request = requests.get(URL)
 
@@ -275,7 +275,7 @@ def pgpkeydirectdownload():
 
     query = input(
         """\nInput Target email to Download PGP Key: """)
-    webbrowser.open("https://api.protonmail.ch/pks/lookup?op=get&search=" + query)
+    webbrowser.open(f"https://api.protonmail.ch/pks/lookup?op=get&search={query}")
 
 
 def extract_key(source_code):
@@ -286,8 +286,7 @@ def extract_key(source_code):
     regex = ':[0-9]{2,4}:(.*)::'
 
     try:
-        key = re.search(regex, source_code.text).group(0).split(":")[1]
-        return key
+        return re.search(regex, source_code.text)[0].split(":")[1]
     except AttributeError:
         return None
 
@@ -313,18 +312,21 @@ def pgpkeyview():
             print("\u001b[31m\n\nProtonmail user does not exist\u001b[32m")
             invalidEmail = True
 
-    if(make_api_request(mail)):
+    if (make_api_request(mail)):
 
         #Refractor this by removing all of this and use the function extract_timestamp(email) instead
-        source_code = requests.get('https://api.protonmail.ch/pks/lookup?op=index&search=' + mail)
+        source_code = requests.get(
+            f'https://api.protonmail.ch/pks/lookup?op=index&search={mail}'
+        )
+
 
         timestamp = extract_timestamp(mail, source_code)
         key = extract_key(source_code)
 
-        print("PGP Key Date and Creation Time:", str(timestamp))
+        print("PGP Key Date and Creation Time:", timestamp)
 
-        if(key != "22"):
-            print("Encryption Standard : RSA " + key + "-bit")
+        if (key != "22"):
+            print(f"Encryption Standard : RSA {key}-bit")
         else:
             print("Encryption Standard : ECC Curve25519")
 
@@ -338,7 +340,10 @@ def pgpkeyview():
             # Text if the input is valid
             if responseFromUser == "Y":
                 invalidResponse = False
-                requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search=' + str(mail))
+                requestProtonPublicKey = requests.get(
+                    f'https://api.protonmail.ch/pks/lookup?op=get&search={str(mail)}'
+                )
+
                 bodyResponsePublicKey = requestProtonPublicKey.text
                 print(bodyResponsePublicKey)
             elif responseFromUser == "N":
@@ -378,7 +383,7 @@ def main():
     printprotintelligencebanner()
     choice = input(
         """\033[1m\u001b[32mType [c] or [C] to check Proton API Status: \033[0m\u001b[32m""")
-    if choice == "c" or choice == "C":
+    if choice in ["c", "C"]:
         checkprotonapistatus()
     choice = input("""\033[1mView All Options? \u001b[32m [Y] or [N]:\033[0m\u001b[32m """)
     if choice == "Y":
