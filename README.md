@@ -27,7 +27,7 @@ You will be able to get intelligence on:
 - ProtonMail PGP Key of users
 - Digital Footprints left by the ProtonMail user on the clear and Dark Web.
 
-# v2.0 
+# v2.0 using NeutrOSINT
 It was created on 23/11/2022 and the fix was made by [@Kr0wZ](https://github.com/Kr0wZ) by using his own script called [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT), which uses the selenium module to check if an email is valid.
 <br>
 
