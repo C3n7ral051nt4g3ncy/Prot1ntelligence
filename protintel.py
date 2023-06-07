@@ -114,8 +114,10 @@ def make_api_request(mail):
     try:
         request = requests.get("https://account.proton.me/api/users/available", 
             headers={
-                "x-pm-appversion":"web-account@5.0.11.11",
-                "x-pm-locale":"en_US"
+                "x-pm-appversion":"web-account@5.0.31.2",
+                "x-pm-locale":"en_US",
+                "x-pm-uid":"ajkjfjlfeuy3kko75qfzqyu24sqtgrm6",
+                "Cookie":"AUTH-ajkjfjlfeuy3kko75qfzqyu24sqtgrm6=b5zmtcco5k2mh7t4fll4obfaiqsdu2jh"
             },
             params={
                 "Name":mail,
