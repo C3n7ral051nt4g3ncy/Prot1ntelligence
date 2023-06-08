@@ -24,10 +24,15 @@
 **ProtINTelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
 I am currently working on finishing this tool soon so that it can check if a protonmail address exists and is valid, and then extract key type and creation date which may indicate the date the user created his protonmail account. (This depends whether the user created a new key or not)
 
-# What can this tool do so far 🔥
-So far I have made a function in which you type any email from a domain, and protintelligence will:
-   - Tell you if the email is used as a protonmail custom domain.
-   - It will also detect if the custom domain is using a **catch-all** and provide you with the main email address of the custom domain.
+# What can this tool do so far? 🔥
+Protintelligence is currently working perfectly for checking any domain name to see if this domain uses protonmail to send and receive emails:
+Input example: test@fornever.com
+<br>
+With the input above, this tool can:
+   - Tell you if the custom domain uses Protonmail to send and receive emails
+   - It will detect if the custom domain is using a **catch-all** and provide you with the main email address.
+   - It will provide you with PGP key creation date and time (This is often the same date and time as account creation,as not many people change their keys)
+   - It will tell you the Key Encryption Type: RSA (4096)	or ECC (Curve25519)
 
   
 # Requirements 🐍
