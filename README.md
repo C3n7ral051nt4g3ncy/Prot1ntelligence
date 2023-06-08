@@ -25,12 +25,9 @@
 I am currently working on finishing this tool soon so that it can check if a protonmail address exists and is valid, and then extract key type and creation date which may indicate the date the user created his protonmail account. (This depends whether the user created a new key or not)
 
 # What can this tool do so far 🔥
-So far I have made a function in which you type any email from a domain, and protintelligence will 
-   - tell you if its a protonmail custom domain.
-   - It will also detect if the custom domain is using a catch-all and provide you with the main email address of the custom domain.
-
-
-
+So far I have made a function in which you type any email from a domain, and protintelligence will:
+   - Tell you if the email is used as a protonmail custom domain.
+   - It will also detect if the custom domain is using a **catch-all** and provide you with the main email address of the custom domain.
 
   
 # Requirements 🐍
