@@ -157,6 +157,6 @@ This tool took me a good few weeks to make, if you like it and if it's useful fo
   
   
 # Mention 📢
-The tool has 3 modules based on **PROTOSINT** made by **@Pixelbubble**.
-As Protosint did not work correctly for me and is missing some search modules that I wanted, I decided to make something different for my first project, but a little bit of code and ideas was forked from:
-https://github.com/pixelbubble/ProtOSINT
+When I first made this script, I used 3 functions from protosint. https://github.com/pixelbubble/ProtOSINT
+From version 2.1 (08/06/2023), I wiped everything and I started making the script to be 100% my own code.
+There may be some help from [Kr0wZ](https://github.com/Kr0wZ) in the coming weeks for the email validation function.
