@@ -2,13 +2,11 @@
 # File name          : protintel.py
 # Author             : GitHub: @C3n7ral051nt4g3ncy
 
-
 # Py libs
 import requests
 import re
+import datetime
 
-
-# Protintelligence banner
 def printprotintelligencebanner():
     print("""\u001b[32m\033[1m
 
@@ -25,33 +23,48 @@ Twitter: @OSINT_Tactical
 Tool Contributions (₿TC): \u001b[31mbc1q66awg48m2hvdsrf62pvev78z3vkamav7chusde\u001b[32m                                                               
 ___________________________________________________________________ \033[0m\n""")
 
+def extract_timestamp(source_code):
+    timestamp = re.findall(r':(\d{10}):', source_code)
+    return int(timestamp[0]) if timestamp else None
 
+def extract_key(source_code):
+    key_line = source_code.split('\n')[1]
+    key_parts = key_line.split(':')
+    try:
+        key = key_parts[2]
+    except IndexError:
+        key = None
+    return key
 
-def is_protonmail_custom(email):
+def check_email(email):
     url = f"https://api.protonmail.ch/pks/lookup?op=index&search={email}"
     response = requests.get(url)
-    if response.status_code != 200:
-        print(f"Error occurred: {response.status_code}")
-        return None
-    else:
-        result = response.text
-        if 'info:1:1' in result:
-            catch_all_email = re.search(r'uid:(.*)<', result)
-            if catch_all_email and catch_all_email.group(1) != email:
-                print(f"Catch-All detected, this is the main email: {catch_all_email.group(1)}")
-            return True
+    if response.text.startswith('info:1:1'):
+        data = response.text.split('\n')
+        uid_line = data[2]
+        actual_email = re.findall(r'<(.*?)>', uid_line)[0]
+        if actual_email != email:
+            print("Catch-All detected, this is the main email -->", actual_email)
+
+        timestamp = extract_timestamp(response.text)
+        if timestamp is not None:
+            creation_date = datetime.datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+            print("PGP Key Date and Creation Time:", creation_date)
         else:
-            return False
+            print("Problem parsing Key Creation Date.")
 
-def main():
-    printprotintelligencebanner()
-
-    email = input("Enter an email address: ")
-    if is_protonmail_custom(email):
-        print(f"{email} uses a ProtonMail custom domain.")
+        key = extract_key(response.text)
+        if key is not None:
+            if key != "22":
+                print("Encryption Standard : RSA " + key + "-bit")
+            else:
+                print("Encryption Standard : ECC Curve25519")
+        else:
+            print("Problem parsing Encryption Standard.")
     else:
-        print(f"{email} does not use a ProtonMail custom domain.")
+        print("Not a Protonmail custom domain")
 
 if __name__ == "__main__":
-    main()
-
+    printprotintelligencebanner()
+    email = input("Enter the email to check: ")
+    check_email(email)
