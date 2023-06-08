@@ -26,7 +26,7 @@ I am currently working on finishing this tool soon so that it can check if a pro
 
 # What can this tool do so far? 🔥
 Protintelligence is currently working perfectly for checking any domain name to see if this domain uses protonmail to send and receive emails:
-Input example: test@fornever.com
+Input example: test@fornever.me
 <br>
 With the input above, this tool can:
    - Tell you if the custom domain uses Protonmail to send and receive emails
