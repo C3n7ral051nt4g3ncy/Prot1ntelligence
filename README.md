@@ -1,18 +1,3 @@
-<p align=center 
-   
-   ### Notice: As of 07 June 2023, this tool is broken. See [Issue#14](https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/issues/14)
-   
-   <br>
-   
-   <img height="233" src="https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/assets/104733166/d44eb204-f2da-4a34-9a8d-c240fe57668f">
-
-
-<br>
-
-<br>
-
-<br>
-
 
 <p align="center"> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
 <img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
@@ -37,31 +22,20 @@
     
 # PROTINTELLIGENCE 🕵🏻‍♂️
 **ProtINTelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
-You will be able to get intelligence on:
-- ProtonMail accounts/users
-- ProtonVPN users IP adresses
-- ProtonMail PGP Key of users
-- Digital Footprints left by the ProtonMail user on the clear and Dark Web.
+I am currently working on finishing this tool soon so that it can check if a protonmail address exists and is valid, and then extract key type and creation date which may indicate the date the user created his protonmail account. (This depends whether the user created a new key or not)
 
-# v2.0 using NeutrOSINT
-It was created on 23/11/2022 and the fix was made by [@Kr0wZ](https://github.com/Kr0wZ) by using his own script called [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT), which uses the selenium module to check if an email is valid.
-<br>
+# What can this tool do so far 🔥
+So far I have made a function in which you type any email from a domain, and protintelligence will 
+   - tell you if its a protonmail custom domain.
+   - It will also detect if the custom domain is using a catch-all and provide you with the main email address of the custom domain.
+
+
+
 
   
 # Requirements 🐍
 [Python 3](https://www.python.org/downloads/)<br>
 
-<br>
-  
-# Protintelligence video 🎬
-When viewing on Youtube, make sure you view **from a PC**, and put YouTube video **settings to 4K**.
-  
-<a href="https://youtu.be/Ufw1PEwfTLo" target="_blank">
- <img src="https://user-images.githubusercontent.com/104733166/173109191-89dcd8c1-0f87-4655-990e-582c9f59ca9e.png" alt="Watch the video" width="660" height="360" border="10" />
-</a>
-
-<br>
-<br>
 
 # Installation ⚙️
 
@@ -87,45 +61,9 @@ pip3 install -r requirements.txt depending on your set-up.
 python3 protintel.py
 ```
 
-<br>
-  
-# Protintelligence Options
-
-<img width="133" src="https://user-images.githubusercontent.com/104733166/172962265-f2596b54-8405-42b9-b573-449d22dfcb5f.png"/>
-
-  
-### ALPHA 🔍
-``` 
-The Alpha Module confirms if a ProtonMail email address exists and is VALID.
-It also works for custom domains and "catch all" email addresses.
-```
-### BRAVO 📡
-``` 
-The Bravo Module is a logical follow to Module ALPHA, you confirmed that the email address of the target is VALID.
-Now you can use BRAVO to check for Digital Footprints on open source websites,
-simply by running a search with the target email using quotation marks as a DORK to get an exact match.
-```
-### CHARLIE 🏴
-``` 
-The Charlie Module runs a search on the dark web to check the target email digital footprints
-``` 
-### DELTA 🔑
-``` 
-The Delta Module gets information on the ProtonMail user PGP Key, Key creation date and Encryption standard.
-If we are sure the target didn't generate a new PGP Key, the date is also the ProtonMail account creation date.
-You can also request the download of the PGP Key, and add it to your KeyChain to send an encrypted email to the user. 
-```  
-### ECHO 💻
-``` 
-The Echo Module confirms if the IP address you have for the target is an IP address belonging to a ProtonVPN user.
-```   
-<br>
-  
 # Disclaimer ⚠️
 
 `This tool is for the OSINT and Cyber community, don't use it for wrong, immoral, or illegal reasons. I am not responsible for any damage that you cause.`
-
-<br>
 
 # Tool Improvements 🔧
 If you would like to change some code within the tool or if you have any suggestions, please submit your thoughts here on github or contact me via Twitter or Keybase:<br>
@@ -134,29 +72,23 @@ If you would like to change some code within the tool or if you have any suggest
   
 <a href="https://keybase.io/osint_intel"><img src="https://img.shields.io/keybase/pgp/osint_intel?label=Keybase&logo=Keybase&logoColor=orange&style=for-the-badge"/>
 
-<br>
 
 # License ⚖️
 [MIT](https://choosealicense.com/licenses/mit/)
- 
-<br>
+
   
 # Thanks 🙏
 
-<img width="66" src="https://user-images.githubusercontent.com/104733166/203551375-1b687dc5-00a2-4b6c-aece-032d79785523.png"> <br> First of all, a huge thanks to [@Kr0wZ](https://github.com/Kr0wZ), v2.0 of protintelligence is thanks to him, he fixed the email search function which now uses Selenium. The code used is from Kr0wZ's own code from [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT)
-  
 Thanks to [Joe Gray](https://twitter.com/C_3PJoe) for his great courses and the knowledge he passed on to me.
   
-Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Seitz](https://twitter.com/jms_dot_py) for their OSINT Automation with Python knowledge sharing, and thanks to [devnode777](https://github.com/devnode777) for 2 changes.
+Thanks to [White Hat Inspector](https://twitter.com/WHInspector) and [Justin Seitz](https://twitter.com/jms_dot_py) for their OSINT Automation with Python knowledge sharing.
 
-<br>
-<br>
   
  # Support 💗
 This tool took me a good few weeks to make, if you like it and if it's useful for you, please feel free to make a donation for my work by clicking on the **KO-FI** Badge or the **BITCOIN** Badge at the top of this .README file, or simply scan the BTC QR Code to get my BTC Address. 
   
   
 # Mention 📢
-When I first made this script, I used 3 functions from protosint. https://github.com/pixelbubble/ProtOSINT
-From version 2.1 (08/06/2023), I wiped everything and I started making the script to be 100% my own code.
-There may be some help from [Kr0wZ](https://github.com/Kr0wZ) in the coming weeks for the email validation function.
+When I first made this script, I used 3 functions from [Protosint](https://github.com/pixelbubble/ProtOSINT)
+- From version 2.1 (08/06/2023), I wiped everything and started making the script to be **100% my own code**.
+- There may be some help from [Kr0wZ](https://github.com/Kr0wZ) in the coming weeks for the email validation function.
