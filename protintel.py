@@ -40,6 +40,7 @@ def check_email(email):
     url = f"https://api.protonmail.ch/pks/lookup?op=index&search={email}"
     response = requests.get(url)
     if response.text.startswith('info:1:1'):
+        print("This is a Protonmail custom domain.")
         data = response.text.split('\n')
         uid_line = data[2]
         actual_email = re.findall(r'<(.*?)>', uid_line)[0]
