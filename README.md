@@ -13,8 +13,10 @@
 
 <p align="center">
 <a href="https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/blob/master/LICENSE"/> <img alt="Licence" src="https://img.shields.io/badge/LICENCE-MIT-brightgreen"> <br>
-<br>  
-<img src="https://img.shields.io/github/v/release/C3n7ral051nt4g3ncy/Prot1ntelligence?style=for-the-badge">
+</p> 
+
+<p align="center">
+<img src="https://img.shields.io/github/v/release/C3n7ral051nt4g3ncy/Prot1ntelligence?style=for-the-badge"> </p> 
 
   
 </p>
