@@ -22,7 +22,7 @@
     
 # PROTINTELLIGENCE 🕵🏻‍♂️
 **ProtINTelligence** is a Python 🐍 script for the **OSINT &amp; Cyber Community**.<br>
-I am currently working on finishing this tool soon so that it can check if a protonmail address exists and is valid, and then extract key type and creation date which may indicate the date the user created his protonmail account. (This depends whether the user created a new key or not)
+
 
 # What can this tool do so far? 🔥
   
@@ -36,7 +36,16 @@ With the input above, this tool will be able to:
    - **Confirm** if the custom domain uses Protonmail to send and receive emails
    - **Detect** if the custom domain is using a **catch-all** and provide you with the main email address.
    - **Provide** you with PGP key creation date and time (This is often the same date & time as account creation because not many people change their keys)
-   - **Provide** the Key Encryption Type: RSA (4096)	or ECC (Curve25519)
+   - **Provide** the Key Encryption Type: RSA	or ECC (Curve25519)
+   - **Get** PGP Key information + creation date and time for any protonmail email address (protonmail.ch, protonmail.com, proton.me)
+  
+  ⚠️ Make sure the protonmail address exists because the protonmail API response to non-valid email addresses also shows PGP key with a randomized creation date and time.
+  
+  
+# Tool 📸
+  
+<img width="633" src="https://github.com/C3n7ral051nt4g3ncy/Prot1ntelligence/assets/104733166/cbd4e974-166d-4eca-81a2-0c495ba0af08">
+
 
   
 # Requirements 🐍
@@ -95,6 +104,5 @@ This tool took me a good few weeks to make, if you like it and if it's useful fo
   
   
 # Mention 📢
-When I first made this script, I used 3 functions from [Protosint](https://github.com/pixelbubble/ProtOSINT)
-- From version 2.1 (08/06/2023), I wiped everything and started making the script to be **100% my own code**.
-- There may be some help from [Kr0wZ](https://github.com/Kr0wZ) in the coming weeks for the email validation function.
+When I first made this script, I used 3 functions from [Protosint](https://github.com/pixelbubble/ProtOSINT), but protosint is no longer maintained.
+- The current version (v2.2) is **100% my own code**.
