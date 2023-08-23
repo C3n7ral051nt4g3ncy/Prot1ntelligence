@@ -1,10 +1,3 @@
-
-<p align="center"> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
-<img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
-  
-<br>
-<br>
-  
 <p align="center">
 <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white"/> 
 <a href="https://github.com/C3n7ral051nt4g3ncy"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
