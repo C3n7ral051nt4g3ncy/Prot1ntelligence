@@ -9,20 +9,29 @@ import datetime
 
 
 def printprotintelligencebanner():
-    print("""\u001b[32m\033[1m
+    GREEN_BOLD = "\033[32m\033[1m"
+    RED = "\033[31m"
+    RESET = "\033[0m"
 
+    banner = r"""
 * * * * * * * * * * * * * * * * * * * *
 *  ___         _   _ _  _ _____    _  *
 * | _ \_ _ ___| |_/ | \| |_   _|__| | *
 * |  _/ '_/ _ \  _| | .` | | |/ -_) | *
 * |_| |_| \___/\__|_|_|\_| |_|\___|_| *
 *                                     *
-* * * * * * * * * * * * * * * * * * * *                                                                     
+* * * * * * * * * * * * * * * * * * * *
+"""
 
-GitHub:  https://github.com/C3n7ral051nt4g3ncy                                                          
-Twitter: @OSINT_Tactical                                                                             
-Tool Contributions (₿TC): \u001b[31mbc1q66awg48m2hvdsrf62pvev78z3vkamav7chusde\u001b[32m                                                               
-___________________________________________________________________ \033[0m\n""")
+    print(
+        GREEN_BOLD
+        + banner
+        + "\nGitHub:  https://github.com/C3n7ral051nt4g3ncy"
+        + "\nTwitter: @OSINT_Tactical"
+        + f"\nTool Contributions (₿TC): {RED}bc1q66awg48m2hvdsrf62pvev78z3vkamav7chusde{GREEN_BOLD}"
+        + "\n___________________________________________________________________"
+        + RESET
+    )
 
 
 def extract_timestamp(source_code):
@@ -43,7 +52,8 @@ def extract_key_and_length(source_code):
 
 def check_email(email):
     url = f"https://api.protonmail.ch/pks/lookup?op=index&search={email}"
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
+
     if response.text.startswith('info:1:1'):
         email_domain = email.split("@")[1]
         if email_domain in ["protonmail.com", "protonmail.ch", "proton.me"]:
@@ -52,16 +62,19 @@ def check_email(email):
             print("This is a Protonmail custom domain.")
 
         data = response.text.split('\n')
-        uid_line = data[2]
-        email_in_brackets = re.findall(r'<(.*?)>', uid_line)
-        if email_in_brackets:
-            actual_email = email_in_brackets[0]
-            if actual_email != email:
-                print("Catch-All detected, this is the main email -->", actual_email)
+        if len(data) > 2:
+            uid_line = data[2]
+            email_in_brackets = re.findall(r'<(.*?)>', uid_line)
+            if email_in_brackets:
+                actual_email = email_in_brackets[0]
+                if actual_email != email:
+                    print("Catch-All detected, this is the main email -->", actual_email)
 
         timestamp = extract_timestamp(response.text)
         if timestamp is not None:
-            creation_date = datetime.datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+            creation_date = datetime.datetime.fromtimestamp(
+                timestamp, datetime.UTC
+            ).strftime('%Y-%m-%d %H:%M:%S UTC')
             print("PGP Key Date and Creation Time:", creation_date)
         else:
             print("Problem parsing Key Creation Date.")
@@ -75,7 +88,7 @@ def check_email(email):
         else:
             print("Problem parsing Encryption Standard.")
     else:
-        print("Not a Protonmail custom domain")
+        print("Not a Protonmail address or no public PGP key found.")
 
 
 if __name__ == "__main__":
