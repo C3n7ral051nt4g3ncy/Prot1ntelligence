@@ -40,19 +40,23 @@ def extract_timestamp(source_code):
 
 
 def extract_key_and_length(source_code):
-    key_line = source_code.split('\n')[1]
-    key_parts = key_line.split(':')
+    lines = source_code.split('\n')
+    if len(lines) < 2:
+        return None, None
+    key_parts = lines[1].split(':')
     try:
-        key_type = key_parts[2]
-        key_length = key_parts[3]
+        return key_parts[2], key_parts[3]
     except IndexError:
-        key_type = key_length = None
-    return key_type, key_length
+        return None, None
 
 
 def check_email(email):
     url = f"https://api.protonmail.ch/pks/lookup?op=index&search={email}"
-    response = requests.get(url, timeout=10)
+    try:
+        response = requests.get(url, timeout=10)
+    except requests.RequestException as e:
+        print(f"Request to Proton failed: {e}")
+        return
 
     if response.text.startswith('info:1:1'):
         email_domain = email.split("@")[1]
@@ -73,7 +77,7 @@ def check_email(email):
         timestamp = extract_timestamp(response.text)
         if timestamp is not None:
             creation_date = datetime.datetime.fromtimestamp(
-                timestamp, datetime.UTC
+                timestamp, datetime.timezone.utc
             ).strftime('%Y-%m-%d %H:%M:%S UTC')
             print("PGP Key Date and Creation Time:", creation_date)
         else:
